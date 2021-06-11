@@ -1,0 +1,31 @@
+
+# Importing required libraries
+import pandas as pd
+import pytest
+
+import sys
+from pathlib import Path
+
+# Add the parent directory of package to sys.path before attempting to import anything from package using absolute imports.
+file = Path(__file__).resolve()
+parent, root = file.parent, file.parents[0]
+sys.path.append(str(root))
+
+# Additionally remove the current file's directory from sys.path
+try:
+    sys.path.remove(str(parent))
+except ValueError: # Already removed
+    pass
+
+
+@pytest.fixture(scope='module')
+def stock_df():
+    return pd.read_pickle('../StockDataClean.pkl')
+
+@pytest.fixture(scope='module')
+def traders_df():
+    return pd.read_pickle('../TradersDataClean.pkl')
+
+@pytest.fixture(scope='module')
+def market_data_label_df():
+    return pd.read_pickle('../marketDataLabel.pkl')

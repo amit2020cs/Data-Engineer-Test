@@ -19,7 +19,11 @@ If any suspicious orders are found, we want to do the following analysis:
 
 - If more than one trader is found, rank by number of suspicious orders per trader.
 - Try to find if there is a correlation between the nationality of the trader and the 
+<<<<<<< HEAD
 tendency to make suspicious orders 
+=======
+  tendency to make suspicious orders 
+>>>>>>> master
 
 ## What is evaluated
 - Code logic/functionality (use of Pandas) 
